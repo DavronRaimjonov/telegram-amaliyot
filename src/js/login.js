@@ -2,7 +2,7 @@ const form = document.getElementById("form_password");
 const input_password = document.getElementById("password");
 const btn = document.getElementById("btn");
 let password_text = "";
-localStorage.clear();
+localStorage.removeItem("password");
 input_password.addEventListener("keydown", (e) => {
   password_text = e.target.value;
   if (password_text.trim()) {
@@ -18,6 +18,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (form.password.value === "0000") {
     window.location.href = "/src/index.html";
-    localStorage.setItem("token", "token has be jenertated");
+    localStorage.setItem("password", "token has be password");
   }
 });

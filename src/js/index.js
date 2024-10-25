@@ -1,5 +1,8 @@
-if (!localStorage.getItem("token")) {
+if (!localStorage.getItem("password")) {
   window.location.href = "/src/login.html";
+}
+if (!localStorage.getItem("token")) {
+  window.location.href = "/src/authorization_login.html";
 }
 import { swiper } from "./swiper.js";
 const form = document.querySelector(".form");
@@ -9,6 +12,8 @@ const swiper_wrapper = document.querySelector(".swiper-wrapper");
 const swiper_item = document.querySelector(".swiper_item");
 const close = document.querySelector(".close");
 const imgFile = document.getElementById("file");
+const lock = document.getElementById("lock");
+const logout = document.getElementById("logout");
 function date() {
   let date = new Date();
   let hour = date.getHours() > 10 ? 0 + date.getHours() : date.getHours();
@@ -114,4 +119,15 @@ imgFile.addEventListener("change", (e) => {
   };
   reader.readAsDataURL(file);
   console.log("dataaa");
+});
+
+lock.addEventListener("click", (e) => {
+  e.target.classList.value = "fa-solid fa-lock";
+  setTimeout(() => {
+    window.location.href = "/src/login.html";
+  }, 500);
+});
+logout.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "/src/authorization_login.html";
 });
