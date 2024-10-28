@@ -2,6 +2,7 @@ const form = document.getElementById("form");
 const form_btn = document.getElementById("form_btn");
 const loading_svg = document.querySelector(".loading_svg");
 const error = document.getElementById("error");
+const register = document.getElementById("register");
 localStorage.removeItem("token");
 function loading(load) {
   if (load) {
@@ -47,3 +48,8 @@ function authorizathion(data, { phone_number, password }) {
     error.style.display = "block";
   }
 }
+
+register.addEventListener(
+  "click",
+  () => (window.location.href = "/src/register.html")
+);
